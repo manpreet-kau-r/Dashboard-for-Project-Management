@@ -1,0 +1,38 @@
+ <!-- Basic.html -->
+{% extends 'dash/basic.html' %}
+
+<!-- Title -->
+    {% block title %} Dashboard {% endblock %}
+
+<!-- Style -->
+	{% block css %}
+    	
+    {% endblock %}
+
+    
+<!-- Body -->
+	{% block body %}
+
+	{% load static %}
+
+	<div class="container">
+
+		<h2 class="my-4" id="{{product.0.project}}" >{{ product.0.team }} : {{ product.0.project }}</h2>
+		
+		<div class="my-4">
+            <ul class="list-group" id="citems">
+            	{% for i in product %}
+
+				<li class="list-group-item">
+					<img src="{{i.linkedin}}detail/photo/">
+					<p>{{i.name}}</p>
+					<a href="{{i.linkedin}}">LinkedIn</a>
+				</li>
+
+			{% endfor %}
+            </ul>
+        </div>
+
+	{% endblock %}
+
+	

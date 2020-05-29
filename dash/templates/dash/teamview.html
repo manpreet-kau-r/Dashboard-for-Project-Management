@@ -1,0 +1,51 @@
+ <!-- Basic.html -->
+{% extends 'dash/basic.html' %}
+
+<!-- Title -->
+    {% block title %} Dashboard {% endblock %}
+
+<!-- Style -->
+	{% block css %}
+    	.card
+    	{
+    		margin: 10px auto;
+    	}
+    	.card-title
+    	{
+    		text-align:center;
+    	}
+    	.card-img-top
+    	{
+    		width: 70%;
+    		height: 150px;
+    	}
+    {% endblock %}
+
+    
+<!-- Body -->
+	{% block body %}
+
+	{% load static %}
+
+	<div class="container">
+		<div class="row">
+		
+		{% for prods in allProds %}
+		<div class="card align-items-center col-xs-4" style="width: 18rem;">
+			  <img src="{% static 'dash/.jpg' %}" class="card-img-top" alt="...">
+				  <div class="card-body">
+					    <h4 class="card-title" id='namepr{{i.id}}'>{{prods}}</h4>
+			    
+					    <a href="productview/{{prods}}">
+					    	<button id="{{prods}}" class="btn btn-primary">View Projects</button>
+						</a>
+				  </div>
+		</div>
+		{% endfor %}
+
+	</div>
+	</div>
+        
+	{% endblock %}
+
+	

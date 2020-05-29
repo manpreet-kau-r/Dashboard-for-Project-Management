@@ -1,0 +1,88 @@
+<!-- Basic.html -->
+{% extends 'dash/basic.html' %}
+
+<!-- Title -->
+    {% block title %} Register yourself {% endblock %}
+
+<!-- Body -->
+	{% block body %}
+
+		<div class="container my-3">
+			<h3>Enter your details</h3>
+			<form action="/dash/contact/" method="post">
+				{% csrf_token %}
+			  <div class="form-group">
+			    <label for="name">Name</label>
+			    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name">
+			  </div>
+			  <div class="email">
+			    <label for="email">Email</label>
+			    <input type="email" class="form-control" name="email" id="email" placeholder="abc@gmail.com">
+			  </div>
+			  <div class="zoho">
+			    <label for="zoho">Zoho</label>
+			    <input type="email" class="form-control" name="zoho" id="zoho" placeholder="abc@zohomail.com">
+			  </div>
+			  <div class="form-group">
+			    <label for="phone">Phone No.</label>
+			    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your no.">
+			  </div>
+			  <div class="form-group">
+			    <label for="linkedin">Linkedin</label>
+			    <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="Lnkedin url">
+			  </div>
+			<div class="form-group">
+				<label for="team">Team</label>
+
+				<select class="form-control" name="team" id="team" placeholder="Team name">
+				  <option value="SWE">SWE</option>
+				  <option value="BA">BA</option>
+				  <option value="OS">OS</option>
+				  <option value="DS">DS</option>
+				  <option value="CIO">CIO</option>
+				  <option value="Marketing">Marketing</option>
+				</select>
+
+			  </div>
+			  <div class="form-group">
+				<label for="project">Project</label>
+
+				<select class="form-control" name="project" id="project" placeholder="Project name">
+				  <option value="OpenBanking">OpenBanking</option>
+				  <option value="B2B payment">B2B payment</option>
+				  <option value="SME lending">SME lending</option>
+				  <option value="Fraudfi">Fraudfi</option>
+				  <option value="No code and low code platform">No code and low code platform</option>
+				  <option value="Tradex">Tradex</option>
+				  <option value="Fx">Fx</option>
+				  <option value="Reau">Reau</option>
+				  <option value="Digiplat">Digiplat</option>
+				  <option value="Chatbot">Chatbot</option>
+				  <option value="CDO">CDO</option>
+				  <option value="Collateral management">Collateral management</option>
+				  <option value="Transaction monitoring">Transaction monitoring</option>
+				  <option value="AML, KYC">AML, KYC</option>
+				  <option value="Payment">Payment</option>
+				  <option value="Recon">Recon</option>
+				</select>
+				
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+
+	{% endblock %}
+
+{% block js %}
+	
+	<script>
+		{% if thank %}
+
+				alert('Your details have been saved.');
+				document.location = "/dash/contact/";
+
+		{% endif %}
+
+		localStorage.clear();
+	</script>
+{% endblock %}

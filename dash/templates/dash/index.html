@@ -1,0 +1,67 @@
+ <!-- Basic.html -->
+{% extends 'dash/basic.html' %}
+
+<!-- Title -->
+    {% block title %} Dashboard {% endblock %}
+
+<!-- Style -->
+	{% block css %}
+    	.card
+    	{
+    		margin: 10px auto;
+    	}
+    	.card-title
+    	{
+    		text-align:center;
+    	}
+    	.card-img-top
+    	{
+    		width: 70%;
+    		height: 150px;
+    	}
+    {% endblock %}
+
+    
+<!-- Body -->
+	{% block body %}
+
+	{% load static %}
+
+	<div class="container">
+		<div class="row">
+		
+		{% for prods in allProds %}
+		<div class="card align-items-center col-xs-4" style="width: 18rem;">
+			  <img src="{% static 'dash/SWE.jpg' %}" class="card-img-top" alt="...">
+				  <div class="card-body">
+					    <h4 class="card-title">{{prods}}</h4>
+			    
+					    <a href="projectview/{{prods}}">
+					    	<button id="{{prods}}" class="btn btn-primary" >View Projects</button>
+						</a>
+				  </div>
+		</div>
+		{% endfor %}
+
+	</div>
+	</div>
+        
+	{% endblock %}
+
+	{% block js %}
+
+		<script>
+			localStorage.clear();
+
+			var step=[];
+
+			$('button').on('click',function()
+			{
+				var temp=this.id;
+				step.append(temp);
+				localStorage.setItem('step',step);
+			});
+
+		</script>
+
+	{% endblock %}
